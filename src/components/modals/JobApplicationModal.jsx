@@ -26,17 +26,17 @@ export default function JobApplicationModal({ job, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#07111A]/75 animate-in fade-in duration-200">
       <div 
-        className="bg-[#16202C] text-white w-full max-w-xl max-h-[90vh] rounded-3xl border border-[#00E2B7]/40 shadow-2xl overflow-hidden flex flex-col relative animate-in zoom-in-95 duration-200"
+        className="bg-[#0C1824] text-white w-full max-w-xl max-h-[90vh] rounded-none border border-[#00E2B7]/40  overflow-hidden flex flex-col relative animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/60 bg-[#0D1620]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/60 bg-[#07111A]">
           <div>
             <span className="text-[11px] font-bold text-[#00E2B7] uppercase tracking-widest block">
               Recrutement & Carrières
             </span>
-            <h3 className="text-lg font-bold font-['Outfit'] text-white">
+            <h3 className="text-lg font-bold font-display text-white">
               {job.title}
             </h3>
           </div>
@@ -52,7 +52,7 @@ export default function JobApplicationModal({ job, onClose }) {
           {applied ? (
             <div className="py-8 text-center space-y-4 animate-in zoom-in-95">
               <CheckCircle2 className="w-14 h-14 text-[#00E2B7] mx-auto" />
-              <h4 className="text-xl font-bold font-['Outfit'] text-white">Candidature Transmise !</h4>
+              <h4 className="text-xl font-bold font-display text-white">Candidature Transmise !</h4>
               <p className="text-xs sm:text-sm text-slate-300 max-w-sm mx-auto">
                 Merci pour votre intérêt pour Future Buildings. Notre service des Ressources Humaines examinera votre profil avec attention.
               </p>
@@ -65,7 +65,7 @@ export default function JobApplicationModal({ job, onClose }) {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="bg-[#0D1620] p-3.5 rounded-xl border border-slate-700 text-xs text-slate-300 space-y-1">
+              <div className="bg-[#07111A] p-3.5 rounded-none border border-slate-700 text-xs text-slate-300 space-y-1">
                 <span className="font-semibold text-white block">Poste ciblé : {job.title}</span>
                 <p className="text-slate-400">Département : {job.department || "Pôle BTP"}</p>
               </div>
@@ -78,7 +78,7 @@ export default function JobApplicationModal({ job, onClose }) {
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   placeholder="Ex: Kouamé N'Guessan"
-                  className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                  className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                 />
               </div>
 
@@ -91,7 +91,7 @@ export default function JobApplicationModal({ job, onClose }) {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="candidat@email.com"
-                    className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                    className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                   />
                 </div>
                 <div>
@@ -101,13 +101,13 @@ export default function JobApplicationModal({ job, onClose }) {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+225 07 00 00 00"
-                    className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                    placeholder="+229 XX XX XX XX"
+                    className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                   />
                 </div>
               </div>
 
-              <div className="border border-dashed border-slate-700 rounded-xl p-4 text-center bg-[#0D1620]/60">
+              <div className="border border-dashed border-slate-700 rounded-none p-4 text-center bg-[#07111A]/60">
                 <input
                   type="file"
                   id="cv-file"
@@ -134,13 +134,13 @@ export default function JobApplicationModal({ job, onClose }) {
                   value={formData.coverNote}
                   onChange={(e) => setFormData({ ...formData, coverNote: e.target.value })}
                   placeholder="Résumez en quelques lignes vos réalisations et motivations..."
-                  className="w-full bg-[#0D1620] border border-slate-700 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                  className="w-full bg-[#07111A] border border-slate-700 rounded-none p-3 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#16202C] bg-[#00E2B7] hover:bg-[#00c49e] shadow-lg shadow-[#00E2B7]/25 transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
+                className="w-full py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#0C1824] bg-[#00E2B7] hover:bg-[#00c49e] shadow-lg shadow-[#00E2B7]/25 transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
               >
                 <Send className="w-4 h-4" />
                 <span>Soumettre ma Candidature</span>

@@ -1,18 +1,18 @@
-// Données de l'entreprise Future Buildings — Algérie
+// Données de l'entreprise Future Buildings — siège à Cotonou (Bénin), interventions multi-pays
 
 export const COMPANY_INFO = {
   name: "Future Buildings",
   shortName: "FB",
   slogan: "We build the future buildings",
   baseline: "Études Techniques, Expertise, Suivi et Contrôle, Réalisation — Génie Civil & Lots Techniques",
-  domain: "futurebuildings.dz",
-  phone: "+213 XX XX XX XX",
-  mobile: "+213 XX XX XX XX",
-  whatsapp: "+213XXXXXXXX",
-  email: "contact@futurebuildings.dz",
-  quoteEmail: "devis@futurebuildings.dz",
-  address: "Alger, Algérie",
-  openingHours: "Dimanche - Jeudi : 08h00 - 17h00",
+  domain: "thefuturebuildings.com",
+  phone: "+229 XX XX XX XX",
+  mobile: "+229 XX XX XX XX",
+  whatsapp: "+229XXXXXXXX",
+  email: "contact@thefuturebuildings.com",
+  quoteEmail: "devis@thefuturebuildings.com",
+  address: "Cotonou, Bénin",
+  openingHours: "Lundi - Vendredi : 08h00 - 18h00",
   stats: {
     yearsExperience: "15+",
     projectsCompleted: "350+",
@@ -23,7 +23,7 @@ export const COMPANY_INFO = {
     teamMembers: "45+",
     surfaceBuilt: "150 000 m²"
   },
-  vision: "Devenir un acteur de référence en Algérie dans les domaines des études techniques, de l'expertise, du suivi et contrôle, et de la réalisation de projets de génie civil et de lots techniques, en offrant des solutions fiables, innovantes et conformes aux standards internationaux.",
+  vision: "Devenir un acteur de référence en Afrique dans les domaines des études techniques, de l'expertise, du suivi et contrôle, et de la réalisation de projets de génie civil et de lots techniques, en offrant des solutions fiables, innovantes et conformes aux standards internationaux.",
   mission: "Concevoir, expertiser, suivre et réaliser des projets techniques d'envergure en apportant des solutions sur-mesure, tout en garantissant la qualité d'exécution, la sécurité, le respect des délais et la satisfaction totale de nos clients.",
   values: [
     {
@@ -74,12 +74,7 @@ export const COMPANY_INFO = {
     "Certificat de Qualification et de Classification Professionnelle"
   ],
   partners: [
-    { name: "SONATRACH", logo: "SONATRACH" },
-    { name: "SONELGAZ", logo: "SONELGAZ" },
-    { name: "COSIDER", logo: "COSIDER" },
-    { name: "CEVITAL", logo: "CEVITAL" },
-    { name: "SEAAL", logo: "SEAAL" },
-    { name: "NAFTAL", logo: "NAFTAL" }
+    // À compléter avec les références clients réelles (nom + logo autorisé)
   ],
   socialLinks: {
     facebook: "#",

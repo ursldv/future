@@ -7,7 +7,7 @@ export const PROJECTS = [
     category: "Résidentiel Haut Standing",
     categoryKey: "residentiel",
     specs: "Villa de Luxe • 4 800 m²",
-    location: "Zone Résidentielle Privée, Cocody",
+    location: "Zone résidentielle privée",
     year: "2025 - 2026",
     duration: "14 mois",
     client: "Groupe Privé d'Investissement Immobilier",
@@ -83,7 +83,7 @@ export const PROJECTS = [
   },
   {
     id: "voie-expresse-echangeur",
-    title: "Voie Exprime Littorale & Échangeur Nord",
+    title: "Voie Express Littorale & Échangeur Nord",
     category: "Travaux Publics & VRD",
     categoryKey: "tp-vrd",
     specs: "Infrastructures • 14,5 km de 2x2 voies",

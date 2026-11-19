@@ -1,26 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-// Layout Components
-import TopBar from './components/common/TopBar';
-import HeaderNav from './components/common/HeaderNav';
-import Footer from './components/common/Footer';
+import Header from './components/site/Header';
+import Hero from './components/site/Hero';
+import Expertises from './components/site/Expertises';
+import Methode from './components/site/Methode';
+import Realisations from './components/site/Realisations';
+import Groupe from './components/site/Groupe';
+import Engagements from './components/site/Engagements';
+import Temoignages from './components/site/Temoignages';
+import Questions from './components/site/Questions';
+import Actualites from './components/site/Actualites';
+import Carrieres from './components/site/Carrieres';
+import Contact from './components/site/Contact';
+import Footer from './components/site/Footer';
 
-// Home Sections (ordered as they appear on page)
-import HeroSection from './components/home/HeroSection';
-import FeatureCardsStrip from './components/home/FeatureCardsStrip';
-import AboutSection from './components/home/AboutSection';
-import ServicesGrid from './components/home/ServicesGrid';
-import WhyChooseUsSection from './components/home/WhyChooseUsSection';
-import StatsCounterSection from './components/home/StatsCounterSection';
-import GallerySection from './components/home/GallerySection';
-import TeamSection from './components/home/TeamSection';
-import FaqSection from './components/home/FaqSection';
-import TestimonialsSection from './components/home/TestimonialsSection';
-import BlogSection from './components/home/BlogSection';
-import PartnersSection from './components/home/PartnersSection';
-import ContactCtaSection from './components/home/ContactCtaSection';
-
-// Modals
 import ProjectDetailModal from './components/modals/ProjectDetailModal';
 import ServiceDetailModal from './components/modals/ServiceDetailModal';
 import ArticleModal from './components/modals/ArticleModal';
@@ -28,186 +21,118 @@ import JobApplicationModal from './components/modals/JobApplicationModal';
 import QuoteModal from './components/modals/QuoteModal';
 import AdminDashboardModal from './components/admin/AdminDashboardModal';
 
+// Données de démonstration pour l'espace interne
+const DEMO_QUOTES = [
+  {
+    reference: 'FB-DEV-842109',
+    date: '18/11/2026',
+    name: 'Koffi Adjovi',
+    company: 'Groupe Immobilier Atlantique',
+    service: 'Études Techniques & Ingénierie',
+    surface: '3 200 m²',
+    budget: '150 à 500 M FCFA',
+    phone: '+229 XX XX XX XX',
+    email: 'k.adjovi@groupe-atlantique.bj',
+    description: 'Étude technique complète pour complexe résidentiel de 12 appartements avec installation courant faible intégrée.',
+    status: "En cours d'étude",
+  },
+  {
+    reference: 'FB-DEV-719340',
+    date: '17/11/2026',
+    name: 'Aïcha Dossou',
+    company: 'Société des Eaux (démo)',
+    service: 'Travaux Génie Civil & VRD',
+    surface: '8.5 km',
+    budget: 'Plus de 500 M FCFA',
+    phone: '+229 XX XX XX XX',
+    email: 'a.dossou@exemple.bj',
+    description: "Travaux de génie civil pour réseau d'adduction d'eau potable et VRD.",
+    status: 'Nouveau',
+  },
+];
+
+const DEMO_MESSAGES = [
+  {
+    id: 'MSG-101',
+    date: '18/11/2026',
+    name: 'Serge Houngbo',
+    email: 's.houngbo@bet-exemple.bj',
+    phone: '+229 XX XX XX XX',
+    subject: "Partenariat Bureau d'Études",
+    message:
+      "Bonjour, nous sommes un bureau d'études et souhaitons collaborer avec vos ingénieurs sur notre prochain projet d'immeuble de bureaux R+10.",
+  },
+];
+
 function App() {
-  // Modal states
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [selectedJob, setSelectedJob] = useState(null);
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [quotes, setQuotes] = useState(DEMO_QUOTES);
 
-  // Demo data for Back-Office
-  const [quotesList, setQuotesList] = useState([
-    {
-      reference: "FB-DEV-842109",
-      date: "18/11/2026",
-      name: "Karim Benali",
-      company: "Groupe Immobilier Atlas",
-      service: "Études Techniques & Ingénierie",
-      surface: "3 200 m²",
-      budget: "50 à 150 Millions DZD",
-      phone: "+213 XX XX XX XX",
-      email: "k.benali@atlas-immobilier.dz",
-      description: "Étude technique complète pour complexe résidentiel de 12 appartements avec installation courant faible intégrée.",
-      status: "En cours d'étude"
-    },
-    {
-      reference: "FB-DEV-719340",
-      date: "17/11/2026",
-      name: "Nadia Ferhat",
-      company: "SEAAL",
-      service: "Travaux Génie Civil & VRD",
-      surface: "8.5 km",
-      budget: "Plus de 200 Millions DZD",
-      phone: "+213 XX XX XX XX",
-      email: "n.ferhat@seaal.dz",
-      description: "Travaux de génie civil pour réseau d'adduction d'eau potable et VRD.",
-      status: "Nouveau"
-    }
-  ]);
+  const addQuote = (q) => setQuotes((prev) => [q, ...prev]);
 
-  const [messagesList] = useState([
-    {
-      id: "MSG-101",
-      date: "18/11/2026",
-      name: "Ahmed Meziane",
-      email: "a.meziane@cosider.dz",
-      phone: "+213 XX XX XX XX",
-      subject: "Partenariat Bureau d'Études",
-      message: "Bonjour, nous sommes un bureau d'études et souhaitons collaborer avec vos ingénieurs sur notre prochain projet d'immeuble de bureaux R+10."
-    }
-  ]);
-
-  const handleQuoteSubmitted = (newQuote) => {
-    setQuotesList((prev) => [newQuote, ...prev]);
+  // Demande rapide depuis le formulaire de contact : renvoie la référence
+  const handleQuickBooking = (data) => {
+    const reference = 'FB-DEV-' + Math.floor(100000 + Math.random() * 900000);
+    addQuote({
+      reference,
+      date: new Date().toLocaleDateString('fr-FR'),
+      name: data.name,
+      company: 'Demande rapide',
+      service: data.service,
+      surface: 'À évaluer',
+      budget: 'À quantifier',
+      phone: data.phone,
+      email: data.email,
+      description: data.message || 'Demande de rappel.',
+      status: 'Nouveau',
+    });
+    return reference;
   };
 
-  const handleQuickBooking = (bookingData) => {
-    const newRef = "FB-DEV-" + Math.floor(100000 + Math.random() * 900000);
-    const newQuote = {
-      reference: newRef,
-      date: bookingData.date || new Date().toLocaleDateString('fr-FR'),
-      name: bookingData.name,
-      company: "Demande Rapide",
-      service: bookingData.service,
-      surface: "Évaluation préliminaire",
-      budget: "À quantifier",
-      phone: bookingData.phone,
-      email: bookingData.email,
-      description: `Demande rapide — démarrage souhaité le ${bookingData.date || "dès que possible"}.`,
-      status: "Nouveau"
-    };
-    handleQuoteSubmitted(newQuote);
-    alert(`Votre demande a été enregistrée sous la référence ${newRef}. Un ingénieur Future Buildings vous contactera sous 24h.`);
-  };
-
-  const openQuoteModal = () => setIsQuoteModalOpen(true);
-  const closeQuoteModal = () => setIsQuoteModalOpen(false);
+  const openQuote = () => setIsQuoteOpen(true);
 
   return (
-    <div className="min-h-screen bg-white text-slate-800 flex flex-col font-['Plus_Jakarta_Sans',sans-serif]">
-      
-      {/* Top Bar — Dark navy with social + contact info */}
-      <TopBar onOpenAdminModal={() => setIsAdminModalOpen(true)} />
+    <div className="min-h-screen bg-night text-fog">
+      <a
+        href="#groupe"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-brand focus:px-4 focus:py-2 focus:text-night"
+      >
+        Aller au contenu
+      </a>
 
-      {/* Navigation — White sticky navbar */}
-      <HeaderNav 
-        onOpenQuoteModal={openQuoteModal}
-        onOpenSearch={openQuoteModal}
-      />
+      <Header onOpenQuote={openQuote} />
 
-      <main className="flex-1">
-        {/* Hero — Full-screen with gradient overlay and booking form */}
-        <HeroSection 
-          onOpenQuoteModal={openQuoteModal}
-          onQuickBooking={handleQuickBooking}
-        />
-
-        {/* 3 Feature Cards — Dark navy on white */}
-        <FeatureCardsStrip />
-
-        {/* About — Dual images + company description */}
-        <AboutSection onOpenQuoteModal={openQuoteModal} />
-
-        {/* Services Grid — Dark bg with white cards and diamond icons */}
-        <ServicesGrid 
-          onSelectService={(service) => setSelectedService(service)}
-          onOpenQuoteModal={openQuoteModal}
-        />
-
-        {/* Why Choose Us — Checklist + video preview */}
-        <WhyChooseUsSection onOpenQuoteModal={openQuoteModal} />
-
-        {/* Stats Counter — Full-width teal banner */}
-        <StatsCounterSection />
-
-        {/* Gallery — Filterable project grid */}
-        <GallerySection 
-          onSelectProject={(project) => setSelectedProject(project)}
-        />
-
-        {/* Team — 4 expert cards */}
-        <TeamSection />
-
-        {/* FAQ — Image + accordion */}
-        <FaqSection onOpenQuoteModal={openQuoteModal} />
-
-        {/* Testimonials — Dark bg, white cards */}
-        <TestimonialsSection />
-
-        {/* Blog — 3 article cards */}
-        <BlogSection 
-          onSelectArticle={(article) => setSelectedArticle(article)}
-        />
-
-        {/* Partners — Logo strip */}
-        <PartnersSection />
-
-        {/* Contact CTA — Teal banner before footer */}
-        <ContactCtaSection onOpenQuoteModal={openQuoteModal} />
+      <main>
+        <Hero onOpenQuote={openQuote} />
+        <Groupe onOpenQuote={openQuote} />
+        <Expertises onSelectService={setSelectedService} />
+        <Realisations onSelectProject={setSelectedProject} />
+        <Methode />
+        <Engagements />
+        <Temoignages />
+        <Actualites onSelectArticle={setSelectedArticle} />
+        <Carrieres onSelectJob={setSelectedJob} />
+        <Questions />
+        <Contact onQuickBooking={handleQuickBooking} />
       </main>
 
-      {/* Footer — 4-column dark layout */}
-      <Footer 
-        onOpenQuoteModal={openQuoteModal}
-        onOpenAdminModal={() => setIsAdminModalOpen(true)}
-      />
+      <Footer onOpenQuote={openQuote} onOpenAdmin={() => setIsAdminOpen(true)} />
 
-      {/* Modals */}
-      <ProjectDetailModal 
-        project={selectedProject} 
-        onClose={() => setSelectedProject(null)}
-        onOpenQuoteModal={openQuoteModal}
-      />
-
-      <ServiceDetailModal 
-        service={selectedService} 
-        onClose={() => setSelectedService(null)}
-        onOpenQuoteModal={openQuoteModal}
-      />
-
-      <ArticleModal 
-        article={selectedArticle} 
-        onClose={() => setSelectedArticle(null)}
-      />
-
-      <JobApplicationModal 
-        job={selectedJob} 
-        onClose={() => setSelectedJob(null)}
-      />
-
-      <QuoteModal 
-        isOpen={isQuoteModalOpen} 
-        onClose={closeQuoteModal}
-        onQuoteSubmitted={handleQuoteSubmitted}
-      />
-
-      <AdminDashboardModal 
-        isOpen={isAdminModalOpen} 
-        onClose={() => setIsAdminModalOpen(false)}
-        quotes={quotesList}
-        messages={messagesList}
+      <ProjectDetailModal project={selectedProject} onClose={() => setSelectedProject(null)} onOpenQuoteModal={openQuote} />
+      <ServiceDetailModal service={selectedService} onClose={() => setSelectedService(null)} onOpenQuoteModal={openQuote} />
+      <ArticleModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
+      <JobApplicationModal job={selectedJob} onClose={() => setSelectedJob(null)} />
+      <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} onQuoteSubmitted={addQuote} />
+      <AdminDashboardModal
+        isOpen={isAdminOpen}
+        onClose={() => setIsAdminOpen(false)}
+        quotes={quotes}
+        messages={DEMO_MESSAGES}
       />
     </div>
   );

@@ -9,7 +9,7 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
     phone: "",
     email: "",
     surface: "",
-    budget: "75M - 200M FCFA",
+    budget: "75M - 200 M FCFA",
     message: ""
   });
   const [submitted, setSubmitted] = useState(false);
@@ -46,17 +46,17 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#07111A]/75 animate-in fade-in duration-200">
       <div 
-        className="bg-[#16202C] text-white w-full max-w-xl max-h-[90vh] rounded-3xl border border-[#00E2B7]/40 shadow-2xl overflow-hidden flex flex-col relative animate-in zoom-in-95 duration-200"
+        className="bg-[#0C1824] text-white w-full max-w-xl max-h-[90vh] rounded-none border border-[#00E2B7]/40  overflow-hidden flex flex-col relative animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/60 bg-[#0D1620]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/60 bg-[#07111A]">
           <div>
             <span className="text-[11px] font-bold text-[#00E2B7] uppercase tracking-widest block">
               Demande de Chiffrage Rapide
             </span>
-            <h3 className="text-lg font-bold font-['Outfit'] text-white">
+            <h3 className="text-lg font-bold font-display text-white">
               Devis Gratuit Future Buildings
             </h3>
           </div>
@@ -74,7 +74,7 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
               <div className="w-16 h-16 bg-[#00E2B7]/20 border border-[#00E2B7] rounded-full flex items-center justify-center mx-auto text-[#00E2B7]">
                 <Check className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-bold font-['Outfit'] text-white">
+              <h4 className="text-xl font-bold font-display text-white">
                 Demande Enregistrée avec Succès !
               </h4>
               <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
@@ -96,7 +96,7 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
                   required
                   value={formData.serviceType}
                   onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                  className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                  className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                 >
                   <option value="Bâtiments & Travaux Publics (BTP)">Bâtiments & Travaux Publics (BTP)</option>
                   <option value="Importation & Engins Lourds">Importation & Fourniture d'Équipements Industriels & Engins</option>
@@ -116,7 +116,7 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Ex: Jean Kouadio"
-                    className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                    className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                   />
                 </div>
                 <div>
@@ -126,7 +126,7 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="Ex: Entreprise SA / Particulier"
-                    className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                    className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                   />
                 </div>
               </div>
@@ -139,8 +139,8 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+225 07 00 00 00"
-                    className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                    placeholder="+229 XX XX XX XX"
+                    className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                   />
                 </div>
                 <div>
@@ -151,7 +151,7 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="contact@entreprise.ci"
-                    className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                    className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                   />
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
                     value={formData.surface}
                     onChange={(e) => setFormData({ ...formData, surface: e.target.value })}
                     placeholder="Ex: 1 200 m² / 500 T"
-                    className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                    className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                   />
                 </div>
                 <div>
@@ -172,13 +172,13 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
                   <select
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                    className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
+                    className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7]"
                   >
-                    <option value="Moins de 25M FCFA">Moins de 25M FCFA</option>
-                    <option value="25M - 75M FCFA">25M - 75M FCFA</option>
-                    <option value="75M - 200M FCFA">75M - 200M FCFA</option>
-                    <option value="200M - 500M FCFA">200M - 500M FCFA</option>
-                    <option value="Plus de 500M FCFA">Plus de 500M FCFA</option>
+                    <option value="Moins de 25 M FCFA">Moins de 25 M FCFA</option>
+                    <option value="25M - 75 M FCFA">25M - 75 M FCFA</option>
+                    <option value="75M - 200 M FCFA">75M - 200 M FCFA</option>
+                    <option value="200M - 500 M FCFA">200M - 500 M FCFA</option>
+                    <option value="Plus de 500 M FCFA">Plus de 500 M FCFA</option>
                     <option value="À évaluer avec vos ingénieurs">À évaluer avec vos ingénieurs</option>
                   </select>
                 </div>
@@ -192,7 +192,7 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Décrivez votre projet : localisation, spécifications particulières, délais souhaités..."
-                  className="w-full bg-[#0D1620] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7] resize-none"
+                  className="w-full bg-[#07111A] border border-slate-700 rounded-none px-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00E2B7] resize-none"
                 ></textarea>
               </div>
 
@@ -202,7 +202,7 @@ export default function QuoteModal({ isOpen, onClose, onQuoteSubmitted }) {
                 </span>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#16202C] bg-[#00E2B7] hover:bg-[#00c49e] shadow-lg shadow-[#00E2B7]/25 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#0C1824] bg-[#00E2B7] hover:bg-[#00c49e] shadow-lg shadow-[#00E2B7]/25 transition-all cursor-pointer"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Envoyer ma demande</span>

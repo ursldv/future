@@ -69,7 +69,7 @@ export const SERVICES = [
       'Équipements publics et infrastructures de transport',
       'Réhabilitations et restructurations lourdes'
     ],
-    technologies: ['Autodesk Revit & Robot', 'BIM 3D / 4D', 'Eurocodes & RPA']
+    technologies: ['Autodesk Revit & Robot', 'BIM 3D / 4D', 'Eurocodes & BAEL']
   },
 
   // 2. EXPERTISE TECHNIQUE
@@ -508,9 +508,9 @@ export const SERVICES = [
 export const companyInfo = {
   name: 'Future Buildings',
   slogan: 'We build the future buildings',
-  phone: '+213 XX XX XX XX',
-  email: 'contact@futurebuildings.dz',
-  address: 'Alger, Algérie',
+  phone: '+229 XX XX XX XX',
+  email: 'contact@thefuturebuildings.com',
+  address: 'Cotonou, Bénin',
   workingHours: 'Dim - Jeu: 8h00 - 17h00',
   socialLinks: {
     facebook: '#',

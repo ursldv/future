@@ -17,12 +17,12 @@ export default function ArticleModal({ article, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#07111A]/75 animate-in fade-in duration-200">
       <div 
-        className="bg-[#16202C] text-white w-full max-w-2xl max-h-[90vh] rounded-3xl border border-[#00E2B7]/40 shadow-2xl overflow-hidden flex flex-col relative animate-in zoom-in-95 duration-200"
+        className="bg-[#0C1824] text-white w-full max-w-2xl max-h-[90vh] rounded-none border border-[#00E2B7]/40  overflow-hidden flex flex-col relative animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/60 bg-[#0D1620]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/60 bg-[#07111A]">
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#00E2B7]/15 text-[#00E2B7] border border-[#00E2B7]/30">
               {article.category}
@@ -40,7 +40,7 @@ export default function ArticleModal({ article, onClose }) {
         </div>
 
         <div className="p-6 overflow-y-auto space-y-6">
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-700">
+          <div className="relative aspect-[16/9] rounded-none overflow-hidden bg-slate-900 border border-slate-700">
             <img
               src={article.image}
               alt={article.title}
@@ -48,7 +48,7 @@ export default function ArticleModal({ article, onClose }) {
             />
           </div>
 
-          <h3 className="text-2xl font-bold font-['Outfit'] text-white leading-tight">
+          <h3 className="text-2xl font-bold font-display text-white leading-tight">
             {article.title}
           </h3>
 
@@ -74,7 +74,7 @@ export default function ArticleModal({ article, onClose }) {
           </div>
         </div>
 
-        <div className="px-6 py-4 border-t border-slate-700/60 bg-[#0D1620] flex items-center justify-between">
+        <div className="px-6 py-4 border-t border-slate-700/60 bg-[#07111A] flex items-center justify-between">
           <button
             onClick={handleShare}
             className="inline-flex items-center gap-2 text-xs text-slate-300 hover:text-[#00E2B7] transition-colors cursor-pointer"

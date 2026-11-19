@@ -21,7 +21,7 @@ export const NEWS_ARTICLES = [
     category: "Ingénierie & Matériaux",
     title: "Choisir les Bons Agrégats et Aciers pour des Ouvrages Pérennes",
     excerpt: "Pourquoi le choix strict des granulométries de concassés et le contrôle de propreté des sables déterminent la résistance à 50 ans de vos bétons armés.",
-    image: "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?auto=format&fit=crop&w=800&q=80",
     readTime: "6 min",
     content: "Dans les chantiers de génie civil et de bâtiment de prestige, la formulation du béton ne tolère aucune approximation. L'utilisation d'agrégats concassés issus de roches massives à faible coefficient Los Angeles garantit une absorption optimale des contraintes mécaniques..."
   },
@@ -35,7 +35,7 @@ export const NEWS_ARTICLES = [
     excerpt: "La synergie entre centrales photovoltaïques en toiture et systèmes CVC à débit de réfrigérant variable (VRV) pour une facture énergétique allégée de plus de 60%.",
     image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80",
     readTime: "5 min",
-    content: "Sous nos climats tropicaux, la climatisation représente souvent plus de 55% de la facture énergétique d'un immeuble tertiaire. En combinant des vitrages sélectifs à facteur solaire bas, une centrale solaire synchronisée et un pilotage centralisé multizone..."
+    content: "Sous notre climat, entre littoral humide et hauts plateaux, la climatisation représente souvent plus de 55% de la facture énergétique d'un immeuble tertiaire. En combinant des vitrages sélectifs à facteur solaire bas, une centrale solaire synchronisée et un pilotage centralisé multizone..."
   },
   {
     id: "renovation-vs-reconstruction",

@@ -20,20 +20,20 @@ export default function AdminDashboardModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85  animate-in fade-in duration-200">
       <div 
-        className="bg-[#16202C] text-white w-full max-w-5xl h-[88vh] rounded-3xl border border-[#00E2B7]/40 shadow-2xl overflow-hidden flex flex-col relative animate-in zoom-in-95 duration-200"
+        className="bg-[#0C1824] text-white w-full max-w-5xl h-[88vh] rounded-none border border-[#00E2B7]/40  overflow-hidden flex flex-col relative animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/60 bg-[#0D1620]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/60 bg-[#07111A]">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#00E2B7] text-[#16202C] flex items-center justify-center font-bold font-mono">
+            <div className="w-8 h-8 rounded-none bg-[#00E2B7] text-[#0C1824] flex items-center justify-center font-bold font-mono">
               FB
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold text-white font-['Outfit']">
+                <h3 className="text-base font-bold text-white font-display">
                   Back-Office Future Buildings (Aperçu CDC)
                 </h3>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#00E2B7]/15 text-[#00E2B7] border border-[#00E2B7]/30">
@@ -61,7 +61,7 @@ export default function AdminDashboardModal({
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex items-center gap-2 px-6 pt-3 border-b border-slate-800 bg-[#0D1620] text-xs">
+        <div className="flex items-center gap-2 px-6 pt-3 border-b border-slate-800 bg-[#07111A] text-xs">
           <button
             onClick={() => setActiveTab('quotes')}
             className={`flex items-center gap-1.5 px-4 py-2.5 border-b-2 font-semibold transition-all cursor-pointer ${
@@ -125,7 +125,7 @@ export default function AdminDashboardModal({
               </div>
 
               {quotes.length === 0 ? (
-                <div className="text-center py-12 bg-[#0D1620] rounded-2xl border border-slate-800 text-xs text-slate-400">
+                <div className="text-center py-12 bg-[#07111A] rounded-none border border-slate-800 text-xs text-slate-400">
                   Aucun devis soumis pour le moment. Testez le bouton « Demander un devis » sur le site pour voir apparaître un dossier ici !
                 </div>
               ) : (
@@ -133,7 +133,7 @@ export default function AdminDashboardModal({
                   {quotes.map((q, idx) => (
                     <div 
                       key={idx}
-                      className="bg-[#0D1620] p-4 rounded-2xl border border-[#00E2B7]/20 hover:border-[#00E2B7]/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
+                      className="bg-[#07111A] p-4 rounded-none border border-[#00E2B7]/20 hover:border-[#00E2B7]/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
                     >
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
@@ -165,13 +165,13 @@ export default function AdminDashboardModal({
                       <div className="flex items-center gap-2 shrink-0">
                         <a
                           href={`tel:${q.phone}`}
-                          className="px-3 py-1.5 rounded-lg bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/30 text-emerald-300 text-xs font-semibold"
+                          className="px-3 py-1.5 rounded-none bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/30 text-emerald-300 text-xs font-semibold"
                         >
                           Appeler ({q.phone})
                         </a>
                         <a
                           href={`mailto:${q.email}?subject=Future Buildings - Devis ${q.reference}`}
-                          className="px-3 py-1.5 rounded-lg bg-[#00E2B7]/20 hover:bg-[#00E2B7] hover:text-[#16202C] border border-[#00E2B7]/40 text-[#00E2B7] text-xs font-semibold transition-colors"
+                          className="px-3 py-1.5 rounded-none bg-[#00E2B7]/20 hover:bg-[#00E2B7] hover:text-[#0C1824] border border-[#00E2B7]/40 text-[#00E2B7] text-xs font-semibold transition-colors"
                         >
                           Répondre par Email
                         </a>
@@ -191,7 +191,7 @@ export default function AdminDashboardModal({
               </div>
 
               {messages.length === 0 ? (
-                <div className="text-center py-12 bg-[#0D1620] rounded-2xl border border-slate-800 text-xs text-slate-400">
+                <div className="text-center py-12 bg-[#07111A] rounded-none border border-slate-800 text-xs text-slate-400">
                   Aucun message de contact récent. Les messages saisis dans le formulaire de pied de page apparaîtront instantanément ici.
                 </div>
               ) : (
@@ -199,14 +199,14 @@ export default function AdminDashboardModal({
                   {messages.map((m, idx) => (
                     <div 
                       key={idx}
-                      className="bg-[#0D1620] p-4 rounded-2xl border border-slate-800 space-y-2 text-xs"
+                      className="bg-[#07111A] p-4 rounded-none border border-slate-800 space-y-2 text-xs"
                     >
                       <div className="flex items-center justify-between">
                         <strong className="text-white text-sm">{m.name} ({m.email})</strong>
                         <span className="text-slate-400">{m.date}</span>
                       </div>
                       <div className="text-[#00E2B7] font-medium">Sujet : {m.subject || "Demande générale"}</div>
-                      <p className="text-slate-300 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                      <p className="text-slate-300 bg-slate-900/60 p-3 rounded-none border border-slate-800">
                         {m.message}
                       </p>
                     </div>
@@ -220,25 +220,25 @@ export default function AdminDashboardModal({
           {activeTab === 'kpis' && (
             <div className="space-y-6">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="bg-[#0D1620] p-4 rounded-2xl border border-[#00E2B7]/30 space-y-1">
+                <div className="bg-[#07111A] p-4 rounded-none border border-[#00E2B7]/30 space-y-1">
                   <span className="text-[11px] text-slate-400">Temps de Chargement</span>
                   <div className="text-2xl font-bold text-emerald-400 font-mono">1.28 s</div>
                   <span className="text-[10px] text-slate-500">Objectif CDC : &lt; 3.0s (Conforme)</span>
                 </div>
 
-                <div className="bg-[#0D1620] p-4 rounded-2xl border border-[#00E2B7]/30 space-y-1">
+                <div className="bg-[#07111A] p-4 rounded-none border border-[#00E2B7]/30 space-y-1">
                   <span className="text-[11px] text-slate-400">Disponibilité (Uptime)</span>
                   <div className="text-2xl font-bold text-[#00E2B7] font-mono">99.98%</div>
                   <span className="text-[10px] text-slate-500">Objectif CDC : &gt; 99.9% (Conforme)</span>
                 </div>
 
-                <div className="bg-[#0D1620] p-4 rounded-2xl border border-[#00E2B7]/30 space-y-1">
+                <div className="bg-[#07111A] p-4 rounded-none border border-[#00E2B7]/30 space-y-1">
                   <span className="text-[11px] text-slate-400">Score Google PageSpeed</span>
                   <div className="text-2xl font-bold text-emerald-400 font-mono">98 / 100</div>
                   <span className="text-[10px] text-slate-500">Objectif CDC : &gt; 90 (Excellent)</span>
                 </div>
 
-                <div className="bg-[#0D1620] p-4 rounded-2xl border border-[#00E2B7]/30 space-y-1">
+                <div className="bg-[#07111A] p-4 rounded-none border border-[#00E2B7]/30 space-y-1">
                   <span className="text-[11px] text-slate-400">Taux de Conversion Devis</span>
                   <div className="text-2xl font-bold text-amber-300 font-mono">6.4%</div>
                   <span className="text-[10px] text-slate-500">Objectif CDC : &gt; 5.0% (Validé)</span>
@@ -246,7 +246,7 @@ export default function AdminDashboardModal({
               </div>
 
               {/* Security & SEO health */}
-              <div className="bg-[#0D1620] p-6 rounded-2xl border border-slate-800 space-y-3">
+              <div className="bg-[#07111A] p-6 rounded-none border border-slate-800 space-y-3">
                 <h4 className="text-sm font-bold text-white flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   Sécurité & Conformité Technique (Chapitre 8.2)
@@ -278,26 +278,26 @@ export default function AdminDashboardModal({
                 </span>
                 <button
                   onClick={() => alert("Fonctionnalité d'ajout de nouveau projet prête pour le back-end de production.")}
-                  className="px-3 py-1.5 rounded-lg bg-[#00E2B7] hover:bg-[#00c49e] text-[#16202C] font-bold text-xs cursor-pointer shadow-md"
+                  className="px-3 py-1.5 rounded-none bg-[#00E2B7] hover:bg-[#00c49e] text-[#0C1824] font-bold text-xs cursor-pointer shadow-md"
                 >
                   + Ajouter un nouveau projet
                 </button>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="bg-[#0D1620] p-4 rounded-2xl border border-slate-800 space-y-2">
+                <div className="bg-[#07111A] p-4 rounded-none border border-slate-800 space-y-2">
                   <h5 className="font-bold text-white text-xs">Module Réalisations</h5>
                   <p className="text-[11px] text-slate-400">6 fiches projets publiées avec filtres par catégorie.</p>
                   <span className="text-[10px] text-emerald-400">Statut : En ligne</span>
                 </div>
 
-                <div className="bg-[#0D1620] p-4 rounded-2xl border border-slate-800 space-y-2">
+                <div className="bg-[#07111A] p-4 rounded-none border border-slate-800 space-y-2">
                   <h5 className="font-bold text-white text-xs">Module Services & Activités</h5>
                   <p className="text-[11px] text-slate-400">6 fiches techniques détaillées (BTP, VRD, CVC, Solaire, Matériaux).</p>
                   <span className="text-[10px] text-emerald-400">Statut : En ligne</span>
                 </div>
 
-                <div className="bg-[#0D1620] p-4 rounded-2xl border border-slate-800 space-y-2">
+                <div className="bg-[#07111A] p-4 rounded-none border border-slate-800 space-y-2">
                   <h5 className="font-bold text-white text-xs">Module Actualités & Blog</h5>
                   <p className="text-[11px] text-slate-400">4 articles d'analyse et veille technique publiés.</p>
                   <span className="text-[10px] text-emerald-400">Statut : En ligne</span>
@@ -309,11 +309,11 @@ export default function AdminDashboardModal({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-slate-800 bg-[#0D1620] flex items-center justify-between text-xs text-slate-400">
+        <div className="px-6 py-3 border-t border-slate-800 bg-[#07111A] flex items-center justify-between text-xs text-slate-400">
           <span>Future Buildings Web Platform v1.0 • Hébergement cloud certifié</span>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium cursor-pointer"
+            className="px-4 py-1.5 rounded-none bg-slate-800 hover:bg-slate-700 text-white font-medium cursor-pointer"
           >
             Fermer le Back-Office
           </button>
