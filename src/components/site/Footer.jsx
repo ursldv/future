@@ -12,7 +12,7 @@ const LINKS = [
   ['#contact', 'Contact'],
 ];
 
-export default function Footer({ onOpenQuote, onOpenAdmin }) {
+export default function Footer({ onOpenQuote }) {
   const social = COMPANY_INFO.socialLinks;
   return (
     <footer className="border-t border-ink/8 bg-night">
@@ -82,12 +82,7 @@ export default function Footer({ onOpenQuote, onOpenAdmin }) {
 
         <div className="flex flex-col gap-4 border-t border-ink/8 py-8 text-[13px] text-steel sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Future Buildings. Tous droits réservés.</p>
-          <div className="flex gap-6">
-            <a href="#top" className="hover:text-ink">Retour en haut ↑</a>
-            <button type="button" onClick={onOpenAdmin} className="hover:text-ink cursor-pointer">
-              Espace interne
-            </button>
-          </div>
+          <a href="#top" className="hover:text-ink">Retour en haut ↑</a>
         </div>
       </div>
     </footer>

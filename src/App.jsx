@@ -121,7 +121,7 @@ function App() {
         <Contact onQuickBooking={handleQuickBooking} />
       </main>
 
-      <Footer onOpenQuote={openQuote} onOpenAdmin={() => setIsAdminOpen(true)} />
+      <Footer onOpenQuote={openQuote} />
 
       <ProjectDetailModal project={selectedProject} onClose={() => setSelectedProject(null)} onOpenQuoteModal={openQuote} />
       <ServiceDetailModal service={selectedService} onClose={() => setSelectedService(null)} onOpenQuoteModal={openQuote} />
