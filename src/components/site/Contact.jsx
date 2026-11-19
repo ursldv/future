@@ -6,12 +6,12 @@ import { Reveal } from './primitives';
 const EMPTY = { name: '', email: '', phone: '', service: CATEGORIES[0].label, message: '' };
 
 const inputCls =
-  'mt-2 block w-full border border-white/12 bg-white/[0.04] px-4 py-3.5 text-[15px] text-white placeholder:text-white/30 transition-colors focus:border-brand focus:bg-white/[0.06] focus:outline-none';
+  'mt-2 block w-full border border-ink/12 bg-ink/[0.04] px-4 py-3.5 text-[15px] text-ink placeholder:text-ink/30 transition-colors focus:border-brand focus:bg-ink/[0.06] focus:outline-none';
 
 function Field({ label, children, className = '' }) {
   return (
     <label className={`block ${className}`}>
-      <span className="text-[13px] font-semibold text-white/80">{label}</span>
+      <span className="text-[13px] font-semibold text-ink/80">{label}</span>
       {children}
     </label>
   );
@@ -37,7 +37,7 @@ export default function Contact({ onQuickBooking }) {
   ];
 
   return (
-    <section id="contact" className="relative isolate overflow-hidden">
+    <section id="contact" data-theme="dark" className="relative isolate overflow-hidden">
       <img
         src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2400&q=80"
         alt=""
@@ -53,7 +53,7 @@ export default function Contact({ onQuickBooking }) {
               <span className="h-px w-8 bg-brand" aria-hidden="true" />
               Contact
             </p>
-            <h2 className="display mt-5 text-[clamp(2.4rem,5vw,4.4rem)] text-white">
+            <h2 className="display mt-5 text-[clamp(2.4rem,5vw,4.4rem)] text-ink">
               Parlons de votre <span className="text-brand">projet.</span>
             </h2>
             <p className="mt-6 max-w-md text-[17px] leading-relaxed text-mist">
@@ -65,7 +65,7 @@ export default function Contact({ onQuickBooking }) {
             {infos.map((info, i) => (
               <Reveal key={info.label} delay={i * 60}>
                 <dt className="text-[13px] font-semibold uppercase tracking-[0.12em] text-steel">{info.label}</dt>
-                <dd className="mt-1 text-[17px] font-medium text-white">
+                <dd className="mt-1 text-[17px] font-medium text-ink">
                   {info.href ? (
                     <a href={info.href} className="link-line hover:text-brand transition-colors">
                       {info.value}
@@ -80,13 +80,13 @@ export default function Contact({ onQuickBooking }) {
         </div>
 
         <Reveal delay={120} className="lg:col-span-6 lg:col-start-7">
-          <div className="border border-white/10 bg-night-2/80 p-6 backdrop-blur-md sm:p-10">
+          <div className="border border-ink/10 bg-night-2/80 p-6 backdrop-blur-md sm:p-10">
             {reference ? (
               <div role="status" className="py-10 text-center">
-                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand text-2xl text-night">✓</span>
-                <p className="mt-6 text-[22px] font-semibold text-white">Demande bien reçue</p>
+                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand text-2xl text-on-brand">✓</span>
+                <p className="mt-6 text-[22px] font-semibold text-ink">Demande bien reçue</p>
                 <p className="mt-2 text-[15px] text-mist">
-                  Votre référence : <span className="font-semibold text-white tnum">{reference}</span>
+                  Votre référence : <span className="font-semibold text-ink tnum">{reference}</span>
                 </p>
                 <button
                   type="button"
@@ -127,7 +127,7 @@ export default function Contact({ onQuickBooking }) {
                 </Field>
                 <button
                   type="submit"
-                  className="group mt-2 flex h-14 items-center justify-center gap-3 bg-brand text-[15px] font-semibold text-night transition-colors duration-300 hover:bg-white sm:col-span-2 cursor-pointer"
+                  className="group mt-2 flex h-14 items-center justify-center gap-3 bg-brand text-[15px] font-semibold text-on-brand transition-colors duration-300 hover:bg-ink hover:text-night sm:col-span-2 cursor-pointer"
                 >
                   Envoyer ma demande
                   <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>

@@ -5,8 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Future Buildings — Ingénierie, génie civil et lots techniques</title>
-    <meta name="description" content="Future Buildings conçoit, contrôle et réalise des ouvrages de génie civil et des lots techniques en Algérie : études, expertise, suivi de chantier et réalisation." />
+    <meta name="description" content="Future Buildings conçoit, contrôle et réalise des ouvrages de génie civil et des lots techniques : études, expertise, suivi de chantier et réalisation." />
     <meta name="theme-color" content="#07111A" />
+    <script>
+      // Applique le thème choisi avant l'affichage (évite un flash de la mauvaise couleur)
+      (function () {
+        var t = 'dark';
+        try { t = localStorage.getItem('fb-theme') === 'light' ? 'light' : 'dark'; } catch (e) {}
+        document.documentElement.dataset.theme = t;
+        if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F6F8F9');
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&display=swap" rel="stylesheet">

@@ -53,15 +53,80 @@ export function Unveil({ src, alt = '', className = '', imgClassName = '' }) {
   );
 }
 
-export function Logo({ variant = 'dark', className = '' }) {
+/* Logo : la bonne variante s'affiche selon le thème de la zone (variables CSS --logo-on-*) */
+export function Logo({ className = '' }) {
   return (
-    <img
-      src={variant === 'dark' ? logoOnDark : logoOnLight}
-      alt="Future Buildings — We build the future buildings"
-      className={`block h-auto ${className}`}
-      width="2172"
-      height="399"
-    />
+    <span className={`block ${className}`}>
+      <img
+        src={logoOnDark}
+        alt="Future Buildings — We build the future buildings"
+        className="h-auto w-full"
+        style={{ display: 'var(--logo-on-dark)' }}
+        width="2172"
+        height="399"
+      />
+      <img
+        src={logoOnLight}
+        alt=""
+        aria-hidden="true"
+        className="h-auto w-full"
+        style={{ display: 'var(--logo-on-light)' }}
+        width="2172"
+        height="399"
+      />
+    </span>
+  );
+}
+
+/* ---------------- Thème clair / sombre ---------------- */
+const THEME_KEY = 'fb-theme';
+
+export function useTheme() {
+  const [theme, setTheme] = useState(() =>
+    typeof document !== 'undefined' && document.documentElement.dataset.theme === 'light' ? 'light' : 'dark'
+  );
+
+  const toggle = () => {
+    const next = theme === 'light' ? 'dark' : 'light';
+    const root = document.documentElement;
+    root.classList.add('theme-switching');
+    root.dataset.theme = next;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'light' ? '#F6F8F9' : '#07111A');
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch {
+      /* stockage indisponible : le choix vaut pour cette visite */
+    }
+    window.setTimeout(() => root.classList.remove('theme-switching'), 500);
+    setTheme(next);
+  };
+
+  return [theme, toggle];
+}
+
+export function ThemeToggle({ theme, onToggle, className = '' }) {
+  const light = theme === 'light';
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-label={light ? 'Passer en mode sombre' : 'Passer en mode clair'}
+      title={light ? 'Mode sombre' : 'Mode clair'}
+      className={`flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-colors hover:border-brand hover:text-brand cursor-pointer ${className}`}
+    >
+      {light ? (
+        // Lune
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      ) : (
+        // Soleil
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+        </svg>
+      )}
+    </button>
   );
 }
 
@@ -76,7 +141,7 @@ export function SectionIntro({ eyebrow, title, text, align = 'left', className =
         </p>
       </Reveal>
       <Reveal delay={80}>
-        <h2 className="display mt-5 text-[clamp(2.1rem,4.6vw,3.9rem)] text-white">{title}</h2>
+        <h2 className="display mt-5 text-[clamp(2.1rem,4.6vw,3.9rem)] text-ink">{title}</h2>
       </Reveal>
       {text && (
         <Reveal delay={160}>
@@ -117,7 +182,7 @@ export function ButtonPrimary({ children, className = '', ...rest }) {
   return (
     <button
       type="button"
-      className={`group inline-flex h-13 items-center gap-3 bg-brand pl-6 pr-5 py-4 text-[15px] font-semibold text-night transition-colors duration-300 hover:bg-white cursor-pointer ${className}`}
+      className={`group inline-flex h-13 items-center gap-3 bg-brand pl-6 pr-5 py-4 text-[15px] font-semibold text-on-brand transition-colors duration-300 hover:bg-ink hover:text-night cursor-pointer ${className}`}
       {...rest}
     >
       {children}

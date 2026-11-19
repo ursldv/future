@@ -85,7 +85,7 @@ export default function Hero({ onOpenQuote }) {
   };
 
   return (
-    <section ref={sectionRef} id="top" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-night">
+    <section ref={sectionRef} id="top" data-theme="dark" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-night">
       {/* Vidéo */}
       <div className="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
         <div ref={mediaRef} className="absolute inset-0 scale-[1.08] will-change-transform">
@@ -117,26 +117,28 @@ export default function Hero({ onOpenQuote }) {
               <span className="h-px w-8 bg-brand" aria-hidden="true" />
               Ingénierie · Construction · Lots techniques
             </p>
-            <h1 className="mt-6 text-[clamp(2.6rem,7.5vw,3.6rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white lg:text-[clamp(3.2rem,4.4vw,4.4rem)] lg:whitespace-nowrap">
+            <h1 className="mt-6 text-[clamp(2.6rem,7.5vw,3.6rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-ink lg:text-[clamp(3.2rem,4.4vw,4.4rem)] lg:whitespace-nowrap">
               {LINES.map((l, i) => (
-                <span key={l.text} className="block overflow-hidden pb-[0.08em]">
-                  <span className="block hero-line" style={{ animationDelay: `${350 + i * 140}ms` }}>
+                // Mobile : le texte s'écoule librement (pas de coupure forcée) ; grand écran : 2 lignes animées
+                <span key={l.text} className="max-lg:inline lg:block lg:overflow-hidden lg:pb-[0.08em]">
+                  <span className="max-lg:inline lg:block hero-line" style={{ animationDelay: `${350 + i * 140}ms` }}>
                     {l.text}
                     {l.accent && <span className="text-brand"> {l.accent}</span>}
                   </span>
+                  {i < LINES.length - 1 && <span className="lg:hidden"> </span>}
                 </span>
               ))}
             </h1>
           </div>
 
           <div className="rise lg:col-span-4 lg:pb-3" style={{ animationDelay: '1000ms' }}>
-            <p className="max-w-md text-[17px] leading-relaxed text-white/80">
+            <p className="max-w-md text-[17px] leading-relaxed text-ink/80">
               Bureau d’études, expertise, suivi de chantier et réalisation : une seule équipe
               responsable de votre ouvrage, de la première note de calcul à la remise des clés.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <ButtonPrimary onClick={onOpenQuote}>Démarrer un projet</ButtonPrimary>
-              <a href="#realisations" className="text-[15px] font-semibold text-white">
+              <a href="#realisations" className="text-[15px] font-semibold text-ink">
                 <span className="link-line">Voir nos réalisations</span>
               </a>
             </div>
@@ -144,28 +146,28 @@ export default function Hero({ onOpenQuote }) {
         </div>
 
         {/* Chiffres clés */}
-        <div className="rise mt-14 border-t border-white/15 lg:mt-20" style={{ animationDelay: '1200ms' }}>
+        <div className="rise mt-14 border-t border-ink/15 lg:mt-20" style={{ animationDelay: '1200ms' }}>
           <div className="grid grid-cols-2 lg:grid-cols-[repeat(4,1fr)_auto]">
             {STATS.map((s, i) => (
               <div
                 key={s.label}
-                className={`py-5 pr-4 lg:py-6 ${i % 2 === 1 ? 'border-l border-white/15 pl-5' : ''} ${
-                  i > 0 ? 'lg:border-l lg:border-white/15 lg:pl-7' : ''
-                } ${i > 1 ? 'border-t border-white/15 lg:border-t-0' : ''}`}
+                className={`py-5 pr-4 lg:py-6 ${i % 2 === 1 ? 'border-l border-ink/15 pl-5' : ''} ${
+                  i > 0 ? 'lg:border-l lg:border-ink/15 lg:pl-7' : ''
+                } ${i > 1 ? 'border-t border-ink/15 lg:border-t-0' : ''}`}
               >
-                <p className="text-[clamp(1.7rem,2.8vw,2.5rem)] font-semibold leading-none tracking-tight text-white">
+                <p className="text-[clamp(1.7rem,2.8vw,2.5rem)] font-semibold leading-none tracking-tight text-ink">
                   <Counter to={s.value} start duration={2200} />
                   <span className="text-brand">{s.suffix}</span>
                 </p>
-                <p className="mt-2 text-[13px] text-white/60">{s.label}</p>
+                <p className="mt-2 text-[13px] text-ink/60">{s.label}</p>
               </div>
             ))}
-            <div className="hidden items-center gap-6 border-l border-white/15 pl-7 lg:flex">
+            <div className="hidden items-center gap-6 border-l border-ink/15 pl-7 lg:flex">
               <button
                 type="button"
                 onClick={toggle}
                 aria-label={playing ? 'Mettre la vidéo en pause' : 'Lire la vidéo'}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white transition-colors hover:border-brand hover:bg-brand hover:text-night cursor-pointer"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/25 text-ink transition-colors hover:border-brand hover:bg-brand hover:text-on-brand cursor-pointer"
               >
                 {playing ? (
                   <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1" width="3" height="10" fill="currentColor" /><rect x="7" y="1" width="3" height="10" fill="currentColor" /></svg>
@@ -173,8 +175,8 @@ export default function Hero({ onOpenQuote }) {
                   <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1l8 5-8 5z" fill="currentColor" /></svg>
                 )}
               </button>
-              <a href="#groupe" aria-label="Découvrir la suite" className="flex flex-col items-center gap-2 text-white/60 hover:text-white">
-                <span className="relative block h-12 w-px overflow-hidden bg-white/20">
+              <a href="#groupe" aria-label="Découvrir la suite" className="flex flex-col items-center gap-2 text-ink/60 hover:text-ink">
+                <span className="relative block h-12 w-px overflow-hidden bg-ink/20">
                   <span className="scroll-cue absolute inset-x-0 top-0 h-1/2 bg-brand" />
                 </span>
               </a>

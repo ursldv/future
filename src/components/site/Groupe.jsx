@@ -20,7 +20,7 @@ export default function Groupe({ onOpenQuote }) {
                 className="aspect-square w-full"
               />
             </div>
-            <div className="absolute left-0 top-8 -translate-x-3 bg-brand px-5 py-4 text-night sm:-translate-x-5">
+            <div className="absolute left-0 top-8 -translate-x-3 bg-brand px-5 py-4 text-on-brand sm:-translate-x-5">
               <p className="display text-3xl">ISO 9001</p>
               <p className="text-[12px] font-semibold">Management de la qualité</p>
             </div>
@@ -34,7 +34,7 @@ export default function Groupe({ onOpenQuote }) {
               </p>
             </Reveal>
             <Reveal delay={80}>
-              <h2 className="display mt-5 text-[clamp(2.1rem,4vw,3.5rem)] text-white">
+              <h2 className="display mt-5 text-[clamp(2.1rem,4vw,3.5rem)] text-ink">
                 Un seul partenaire, du premier calcul à la remise des clés.
               </h2>
             </Reveal>
@@ -48,14 +48,14 @@ export default function Groupe({ onOpenQuote }) {
 
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
               <Reveal delay={200}>
-                <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-white">Notre vision</p>
+                <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-ink">Notre vision</p>
                 <p className="mt-3 text-[15px] leading-relaxed text-mist">
                   Devenir l’acteur de référence en Afrique des études, de l’expertise et de la réalisation
                   d’ouvrages techniques, aux standards internationaux.
                 </p>
               </Reveal>
               <Reveal delay={280}>
-                <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-white">Notre mission</p>
+                <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-ink">Notre mission</p>
                 <p className="mt-3 text-[15px] leading-relaxed text-mist">
                   Livrer des ouvrages sûrs, dans les délais et le budget, avec une qualité d’exécution
                   vérifiée à chaque étape.
@@ -64,7 +64,7 @@ export default function Groupe({ onOpenQuote }) {
             </div>
 
             <Reveal delay={320}>
-              <ul className="mt-10 grid gap-3 border-t border-white/10 pt-8 text-[15px] text-white/85">
+              <ul className="mt-10 grid gap-3 border-t border-ink/10 pt-8 text-[15px] text-ink/85">
                 {COMPANY_INFO.certifications.slice(0, 3).map((c) => (
                   <li key={c} className="flex gap-3">
                     <span className="mt-[9px] h-1.5 w-1.5 shrink-0 bg-brand" aria-hidden="true" />

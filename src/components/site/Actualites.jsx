@@ -20,14 +20,14 @@ export default function Actualites({ onSelectArticle }) {
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[1.2s] ease-[var(--ease-out-soft)] group-hover:scale-[1.06]"
                   />
-                  <span className="absolute left-4 top-4 bg-night/85 px-3 py-1.5 text-[12px] font-semibold text-white backdrop-blur">
+                  <span className="absolute left-4 top-4 bg-night/85 px-3 py-1.5 text-[12px] font-semibold text-ink backdrop-blur">
                     {a.category}
                   </span>
                 </div>
                 <p className="mt-6 text-[13px] text-steel tnum">
                   {a.day} {a.month.toLowerCase()}. {a.year} · {a.readTime} de lecture
                 </p>
-                <h3 className="mt-2 text-[21px] font-semibold leading-snug tracking-tight text-white transition-colors group-hover:text-brand">
+                <h3 className="mt-2 text-[21px] font-semibold leading-snug tracking-tight text-ink transition-colors group-hover:text-brand">
                   {a.title}
                 </h3>
                 <p className="mt-3 line-clamp-2 text-[15px] leading-relaxed text-mist">{a.excerpt}</p>

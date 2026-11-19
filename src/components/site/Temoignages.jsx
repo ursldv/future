@@ -66,7 +66,7 @@ export default function Temoignages() {
                 d="M0 36V22C0 10 6 2.5 18 0l2 5c-6 2-9.5 6-10 12h9v19H0zm28 0V22c0-12 6-19.5 18-22l2 5c-6 2-9.5 6-10 12h9v19H28z"
               />
             </svg>
-            <blockquote className="mt-7 text-[clamp(1.5rem,2.8vw,2.4rem)] font-medium leading-[1.3] tracking-tight text-white">
+            <blockquote className="mt-7 text-[clamp(1.5rem,2.8vw,2.4rem)] font-medium leading-[1.3] tracking-tight text-ink">
               {q.quote}
             </blockquote>
             <figcaption className="mt-10 flex items-center gap-4">
@@ -74,7 +74,7 @@ export default function Temoignages() {
                 {q.name.split(' ').map((p) => p[0]).join('')}
               </span>
               <span>
-                <span className="block text-[16px] font-semibold text-white">{q.name}</span>
+                <span className="block text-[16px] font-semibold text-ink">{q.name}</span>
                 <span className="block text-[14px] text-mist">{q.role}</span>
               </span>
             </figcaption>
@@ -92,7 +92,7 @@ export default function Temoignages() {
               >
                 <span
                   className={`block h-[3px] transition-all duration-500 ${
-                    n === i ? 'w-14 bg-brand' : 'w-7 bg-white/20 group-hover:bg-white/50'
+                    n === i ? 'w-14 bg-brand' : 'w-7 bg-ink/20 group-hover:bg-ink hover:text-night/50'
                   }`}
                 />
               </button>

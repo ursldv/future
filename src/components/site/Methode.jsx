@@ -90,7 +90,7 @@ export default function Methode() {
         </div>
 
         <ol ref={listRef} className="relative lg:col-span-6 lg:col-start-7">
-          <span className="absolute bottom-0 left-[23px] top-0 w-px bg-white/10" aria-hidden="true" />
+          <span className="absolute bottom-0 left-[23px] top-0 w-px bg-ink/10" aria-hidden="true" />
           <span
             ref={fillRef}
             className="absolute bottom-0 left-[23px] top-0 w-px origin-top scale-y-0 bg-brand"
@@ -102,14 +102,14 @@ export default function Methode() {
               <li key={s.title} data-step className="relative pb-16 pl-20 last:pb-0">
                 <span
                   className={`absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-full border text-[14px] font-bold tnum transition-colors duration-500 ${
-                    on ? 'border-brand bg-brand text-night' : 'border-white/20 bg-night-2 text-white/50'
+                    on ? 'border-brand bg-brand text-on-brand' : 'border-ink/20 bg-night-2 text-ink/50'
                   }`}
                 >
                   0{i + 1}
                 </span>
                 <h3
                   className={`pt-2 text-[clamp(1.4rem,2.2vw,1.9rem)] font-semibold tracking-tight transition-colors duration-500 ${
-                    on ? 'text-white' : 'text-white/45'
+                    on ? 'text-ink' : 'text-ink/45'
                   }`}
                 >
                   {s.title}

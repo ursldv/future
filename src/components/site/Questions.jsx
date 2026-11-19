@@ -36,14 +36,14 @@ export default function Questions() {
           {FAQ.map((item, i) => {
             const isOpen = open === i;
             return (
-              <li key={item.q} className="border-b border-white/10 first:border-t">
+              <li key={item.q} className="border-b border-ink/10 first:border-t">
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-6 py-6 text-left cursor-pointer"
                 >
-                  <span className={`text-[18px] font-semibold tracking-tight transition-colors ${isOpen ? 'text-brand' : 'text-white'}`}>
+                  <span className={`text-[18px] font-semibold tracking-tight transition-colors ${isOpen ? 'text-brand' : 'text-ink'}`}>
                     {item.q}
                   </span>
                   <span

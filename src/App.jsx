@@ -110,7 +110,7 @@ function App() {
       <main>
         <Hero onOpenQuote={openQuote} />
         <Groupe onOpenQuote={openQuote} />
-        <Expertises onSelectService={setSelectedService} />
+        <Expertises onSelectService={setSelectedService} onOpenQuote={openQuote} />
         <Realisations onSelectProject={setSelectedProject} />
         <Methode />
         <Engagements />

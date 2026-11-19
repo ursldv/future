@@ -21,7 +21,7 @@ export default function Carrieres({ onSelectJob }) {
               <span className="h-px w-8 bg-brand" aria-hidden="true" />
               Carrières
             </p>
-            <h2 className="display mt-5 text-[clamp(2.1rem,4vw,3.4rem)] text-white">
+            <h2 className="display mt-5 text-[clamp(2.1rem,4vw,3.4rem)] text-ink">
               Construisez votre carrière avec nous.
             </h2>
             <p className="mt-5 max-w-lg text-[17px] leading-relaxed text-mist">
@@ -30,7 +30,7 @@ export default function Carrieres({ onSelectJob }) {
             </p>
           </Reveal>
 
-          <ul className="mt-10 divide-y divide-white/10 border-y border-white/10">
+          <ul className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
             {CAREER_JOBS.map((job, i) => (
               <Reveal as="li" key={job.id} delay={i * 70}>
                 <button
@@ -39,7 +39,7 @@ export default function Carrieres({ onSelectJob }) {
                   className="group flex w-full items-center justify-between gap-6 py-5 text-left cursor-pointer"
                 >
                   <span>
-                    <span className="block text-[17px] font-semibold text-white transition-colors group-hover:text-brand">
+                    <span className="block text-[17px] font-semibold text-ink transition-colors group-hover:text-brand">
                       {job.title}
                     </span>
                     <span className="mt-1 block text-[14px] text-mist">
@@ -48,7 +48,7 @@ export default function Carrieres({ onSelectJob }) {
                   </span>
                   <span
                     aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white transition-colors duration-300 group-hover:border-brand group-hover:bg-brand group-hover:text-night"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors duration-300 group-hover:border-brand group-hover:bg-brand group-hover:text-on-brand"
                   >
                     →
                   </span>
